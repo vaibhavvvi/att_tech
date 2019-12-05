@@ -28,8 +28,29 @@ function redirect($url)
 
 // $output = curl_exec($ch);
 // echo $output;
-
-redirect('../inc/phpqrcode/del.php');
+function delete_directory($dirname) {
+         if (is_dir($dirname))
+           $dir_handle = opendir($dirname);
+     if (!$dir_handle)
+          return false;
+     while($file = readdir($dir_handle)) {
+           if ($file != "." && $file != "..") {
+                if (!is_dir($dirname."/".$file))
+                     unlink($dirname."/".$file);
+                else
+                     delete_directory($dirname.'/'.$file);
+           }
+     }
+     closedir($dir_handle);
+     rmdir($dirname);
+     return true;
+}
+echo "Hello World";
+delete_directory('temp');
+delete_directory('cache');
+mkdir("temp");
+mkdir("cache");
+// redirect('../inc/phpqrcode/del.php');
 ?>
 
 <!DOCTYPE html>
