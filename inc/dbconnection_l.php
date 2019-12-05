@@ -25,10 +25,10 @@ function decryptIt_webs($q) {
     return( $qDecoded );
 }
 date_default_timezone_set("Asia/Calcutta");
-$host="localhost";
-$user="u502039025_att_tech_akash";
-$pass="cn3kmiQs*W";
-$dbname="u502039025_att_tech";
+$host="127.0.0.1";
+$user="root";
+$pass="password";
+$dbname="att_tech";
 $link=@mysqli_connect($host,$user,$pass,$dbname);
     if(mysqli_connect_errno())
     {

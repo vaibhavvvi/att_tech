@@ -1,6 +1,4 @@
 <?php session_start(); 
-
-
 function redirect($url)
 {
     if (!headers_sent())
@@ -18,16 +16,6 @@ function redirect($url)
         echo '</noscript>'; exit;
     }
 }
-
-// $ch = curl_init();
-// curl_setopt_array(
-// $ch, array(
-// CURLOPT_URL => '../inc/phpqrcode/del.php',
-// CURLOPT_RETURNTRANSFER => true
-// ));
-
-// $output = curl_exec($ch);
-// echo $output;
 function delete_directory($dirname) {
          if (is_dir($dirname))
            $dir_handle = opendir($dirname);
@@ -49,7 +37,6 @@ delete_directory('../inc/phpqrcode/temp');
 delete_directory('../inc/phpqrcode/cache');
 mkdir("../inc/phpqrcode/temp");
 mkdir("../inc/phpqrcode/cache");
-// redirect('../inc/phpqrcode/del.php');
 ?>
 
 <!DOCTYPE html>
