@@ -45,7 +45,10 @@ function delete_directory($dirname) {
      rmdir($dirname);
      return true;
 }
-
+delete_directory('../inc/phpqrcode/temp');
+delete_directory('../inc/phpqrcode/cache');
+mkdir("../inc/phpqrcode/temp");
+mkdir("../inc/phpqrcode/cache");
 // redirect('../inc/phpqrcode/del.php');
 ?>
 
@@ -219,13 +222,5 @@ position:absolute;
     // Animations initialization
     new WOW().init();
   </script>
-
-<?php 
-delete_directory('temp');
-delete_directory('cache');
-mkdir("temp");
-mkdir("cache");
-?>
-
 </body>
 </html>
