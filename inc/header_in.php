@@ -68,15 +68,64 @@
       </a>
 
        <div class="list-group list-group-flush">
-        <a href="/" class="list-group-item active primary-color waves-effect">
-          <i class="fas fa-qrcode mr-3"></i>QR CODE
+        <a href="../" class="list-group-item list-group-item-action waves-effect">
+          <i class="fas fa-qrcode mr-3"></i>QR CODE</a>
+
+          <?php 
+      $new_path = explode('/',getcwd());
+      $length_of_path = sizeof($new_path);
+      $directory_name = $new_path[$length_of_path-1];
+      if($directory_name=='smart_attendance' || $directory_name=='absent'){
+      ?>
+
+        <a href="../smart_attendance" class="list-group-item active primary-color waves-effect">
+          <i class="fas fa-table mr-3"></i>Smart Attendance
         </a>
-        <a href="smart_attendance" class="list-group-item list-group-item-action waves-effect">
+      <?php } 
+      else{
+
+      ?>
+
+        <a href="../smart_attendance" class="list-group-item list-group-item-action waves-effect">
           <i class="fas fa-table mr-3"></i>Smart Attendance</a>
-          <a href="monthly_view" class="list-group-item list-group-item-action waves-effect">
+
+        <?php } ?>
+
+
+<?php 
+      $new_path = explode('/',getcwd());
+      $length_of_path = sizeof($new_path);
+      $directory_name = $new_path[$length_of_path-1];
+      if($directory_name=='monthly_view'){
+      ?>
+
+        <a href="../monthly_view" class="list-group-item active primary-color waves-effect">
+          <i class="fas fa-calendar mr-3"></i>Monthly report
+        </a>
+      <?php } 
+      else{
+
+      ?>
+
+        <a href="../monthly_view" class="list-group-item list-group-item-action waves-effect">
           <i class="fas fa-calendar mr-3"></i>Monthly report</a>
-           <a href="all_interns" class="list-group-item list-group-item-action waves-effect">
+
+        <?php }
+      $new_path = explode('/',getcwd());
+      $length_of_path = sizeof($new_path);
+      $directory_name = $new_path[$length_of_path-1];
+      if($directory_name=='all_interns'){
+      ?>
+
+        <a href="../all_interns" class="list-group-item active primary-color waves-effect">
+          <i class="fas fa-user mr-3"></i>Interns
+        </a>
+      <?php } 
+      else{
+      ?>
+        <a href="../all_interns" class="list-group-item list-group-item-action waves-effect">
           <i class="fas fa-user mr-3"></i>Interns</a>
+        <?php } ?>
         <!-- <a href="#" class="list-group-item list-group-item-action waves-effect">
           <i class="fas fa-map mr-3"></i>Maps</a> -->
         <!-- <a href="#" class="list-group-item list-group-item-action waves-effect">

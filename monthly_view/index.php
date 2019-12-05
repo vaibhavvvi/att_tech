@@ -31,18 +31,13 @@ position:absolute;
 </head>
 
 <body class="grey lighten-3">
-<?php include 'inc/header.php' ?>
+<?php include '../inc/header_in.php' ?>
   <main class="pt-5 mx-lg-5">
-    <div style="border:1px solid black; height: 80vh" class="container-fluid mt-5">
-
+    <div style="border:0px solid black; height: 80vh" class="container-fluid mt-5">
+      
     </div>
   </main>
-
-  <?php include 'inc/footer.php' ?>
-  <!--/.Footer-->
-
-  <!-- SCRIPTS -->
-  <!-- JQuery -->
+  <?php include '../inc/footer.php' ?>
   <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
   <!-- Bootstrap tooltips -->
   <script type="text/javascript" src="js/popper.min.js"></script>
@@ -54,11 +49,6 @@ position:absolute;
   <script type="text/javascript">
     // Animations initialization
     new WOW().init();
-
   </script>
-
-
-
 </body>
-
 </html>

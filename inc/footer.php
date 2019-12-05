@@ -1,4 +1,4 @@
-<footer style="position: absolute; bottom: 0px; width: 100%" class="page-footer text-center font-small primary-color darken-2 mt-4 wow fadeIn">
+<footer class="page-footer text-center font-small primary-color darken-2 mt-4 wow fadeIn">
 
     <!--Call to action-->
     <!-- <div class="pt-4">
