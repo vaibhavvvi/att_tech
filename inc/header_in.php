@@ -106,7 +106,7 @@
 
       ?>
 
-        <a href="../monthly_view" class="list-group-item list-group-item-action waves-effect">
+        <a href="../monthly_view?month=<?php echo $current_month ?>" class="list-group-item list-group-item-action waves-effect">
           <i class="fas fa-calendar mr-3"></i>Monthly report</a>
 
         <?php }
