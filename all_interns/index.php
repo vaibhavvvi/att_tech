@@ -13,7 +13,7 @@
   <link href="../css/bootstrap.min.css" rel="stylesheet">
   <link href="../css/mdb.min.css" rel="stylesheet">
   <link href="../css/style.min.css" rel="stylesheet">
-  <link rel="icon" href="img/favicon.png">
+  <link rel="icon" href="../img/favicon.png">
   <style>
 
 
