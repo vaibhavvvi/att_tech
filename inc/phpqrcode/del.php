@@ -36,8 +36,10 @@ function delete_directory($dirname) {
      rmdir($dirname);
      return true;
 }
-
+echo "Hello World";
 delete_directory('temp');
 delete_directory('cache');
-redirect('http://127.0.0.1:8080/smart_attendance/');
+mkdir("temp");
+mkdir("cache");
+redirect('https://highradius.tech/smart_attendance');
 ?>
