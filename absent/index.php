@@ -38,7 +38,7 @@ position:absolute;
         <div class="col-lg-8">
            <?php  if($directory_name=='absent'){ ?>
           <button onclick="window.location.href='../smart_attendance'" type="button" class="btn btn-light">PRESENT</button>
-          <button onclick="window.location.href='../absent'" type="button" class="btn primary-color white-text">ABSENT</button>
+          <button onclick="window.location.href='../absent'" type="button" class="btn deep-orange white-text">ABSENT</button>
           <?php }
           else{ ?>
           <button onclick="window.location.href='../smart_attendance'" type="button" class="btn primary-color white-text">PRESENT</button>

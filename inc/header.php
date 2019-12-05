@@ -1,3 +1,8 @@
+<?php
+        $current_month = date('M');
+      ?>
+
+
 <header>
 
     <!-- Navbar -->
@@ -27,10 +32,6 @@
             </li>
             <li class="nav-item">
               <a class="nav-link waves-effect" href="https://mdbootstrap.com/docs/jquery/" target="_blank">FAQ</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link waves-effect" href="https://mdbootstrap.com/docs/jquery/getting-started/download/"
-                target="_blank">Downloads</a>
             </li>
             <li class="nav-item">
               <a class="nav-link waves-effect" href="https://mdbootstrap.com/education/bootstrap/" target="_blank">Raise Query</a>
@@ -73,7 +74,7 @@
         </a>
         <a href="smart_attendance" class="list-group-item list-group-item-action waves-effect">
           <i class="fas fa-table mr-3"></i>Smart Attendance</a>
-          <a href="monthly_view" class="list-group-item list-group-item-action waves-effect">
+          <a href="monthly_view?month=<?php echo $current_month ?>" class="list-group-item list-group-item-action waves-effect">
           <i class="fas fa-calendar mr-3"></i>Monthly report</a>
            <a href="all_interns" class="list-group-item list-group-item-action waves-effect">
           <i class="fas fa-user mr-3"></i>Interns</a>

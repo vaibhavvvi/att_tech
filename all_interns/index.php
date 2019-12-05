@@ -47,7 +47,7 @@ position:absolute;
   <div class="row">
 
     <?php 
-      $query_load_interns = "SELECT * FROM tbl_intern LIMIT 20";
+      $query_load_interns = "SELECT * FROM tbl_intern";
       $res_load_interns = mysqli_query($link, $query_load_interns);
       while($row_load_interns = mysqli_fetch_assoc($res_load_interns)){
     ?>

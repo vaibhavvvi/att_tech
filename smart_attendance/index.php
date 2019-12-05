@@ -50,7 +50,7 @@ mkdir("../inc/phpqrcode/cache");
   <link href="../css/bootstrap.min.css" rel="stylesheet">
   <link href="../css/mdb.min.css" rel="stylesheet">
   <link href="../css/style.min.css" rel="stylesheet">
-  <link rel="icon" href="img/favicon.png">
+  <link rel="icon" href="../img/favicon.png">
   <style>
 
     td{
@@ -92,7 +92,7 @@ position:absolute;
           &nbsp;&nbsp;&nbsp;&nbsp;
          </div>
         <div class="col=lg-10">
-          <button onclick="window.location.href='../smart_attendance'" type="button" class="btn primary-color white-text">PRESENT</button>
+          <button onclick="window.location.href='../smart_attendance'" type="button" class="btn deep-orange white-text">PRESENT</button>
           <?php  if($directory_name=='smart_attendance'){ ?>
           <button onclick="window.location.href='../absent'" type="button" class="btn btn-light">ABSENT</button>
           
