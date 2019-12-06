@@ -1,3 +1,17 @@
+
+
+<head>
+  <head>
+  <style>
+    @media only screen and (max-width: 600px) {
+  .only_for_mobile {
+    display: block !important;
+  }
+}
+  </style>
+</head>
+</head>
+
 <header>
 
     <!-- Navbar -->
@@ -20,6 +34,32 @@
 
           <!-- Left -->
           <ul class="navbar-nav mr-auto">
+
+             <div style="display: none" class="only_for_mobile"> 
+              <li class="nav-item">
+              <a class="nav-link waves-effect" href="../" target="_blank">QR CODE</a>
+            </li>
+            </div>
+
+             <div style="display: none" class="only_for_mobile"> 
+              <li class="nav-item">
+              <a class="nav-link waves-effect" href="../smart_attendance/" target="_blank">Smart Attendance</a>
+            </li>
+            </div>
+
+            <div style="display: none" class="only_for_mobile"> 
+              <li class="nav-item">
+              <a class="nav-link waves-effect" href="../monthly_view/" target="_blank">Monthly View</a>
+            </li>
+            </div>
+
+            <div style="display: none" class="only_for_mobile"> 
+              <li class="nav-item">
+              <a class="nav-link waves-effect" href="../all_interns/" target="_blank">Interns</a>
+            </li>
+            </div>
+
+
             <li class="nav-item active">
               <a class="nav-link waves-effect" href="#">Home
                 <span class="sr-only">(current)</span>
@@ -115,7 +155,6 @@
       $directory_name = $new_path[$length_of_path-1];
       if($directory_name=='all_interns'){
       ?>
-
         <a href="../all_interns" class="list-group-item active primary-color waves-effect">
           <i class="fas fa-user mr-3"></i>Interns
         </a>

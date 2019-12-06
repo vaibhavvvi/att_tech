@@ -3,6 +3,15 @@
       ?>
 
 
+<head>
+  <style>
+    @media only screen and (max-width: 600px) {
+  .only_for_mobile {
+    display: block !important;
+  }
+}
+  </style>
+</head>
 <header>
 
     <!-- Navbar -->
@@ -25,6 +34,33 @@
 
           <!-- Left -->
           <ul class="navbar-nav mr-auto">
+
+
+            <div style="display: none" class="only_for_mobile"> 
+              <li class="nav-item">
+              <a class="nav-link waves-effect" href="../" target="_blank">QR CODE</a>
+            </li>
+            </div>
+
+             <div style="display: none" class="only_for_mobile"> 
+              <li class="nav-item">
+              <a class="nav-link waves-effect" href="../smart_attendance/" target="_blank">Smart Attendance</a>
+            </li>
+            </div>
+
+            <div style="display: none" class="only_for_mobile"> 
+              <li class="nav-item">
+              <a class="nav-link waves-effect" href="../monthly_view/" target="_blank">Monthly View</a>
+            </li>
+            </div>
+
+            <div style="display: none" class="only_for_mobile"> 
+              <li class="nav-item">
+              <a class="nav-link waves-effect" href="../all_interns/" target="_blank">Interns</a>
+            </li>
+            </div>
+
+
             <li class="nav-item active">
               <a class="nav-link waves-effect" href="#">Home
                 <span class="sr-only">(current)</span>
@@ -36,6 +72,10 @@
             <li class="nav-item">
               <a class="nav-link waves-effect" href="https://mdbootstrap.com/education/bootstrap/" target="_blank">Raise Query</a>
             </li>
+
+           
+
+
           </ul>
           <ul class="navbar-nav nav-flex-icons">
             <!-- <li class="nav-item">

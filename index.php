@@ -1,3 +1,5 @@
+<?php include 'inc/dbconnection.php'; ?>
+<?php ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -30,7 +32,8 @@ position:absolute;
   </style>
 </head>
 <body class="grey lighten-3">
-<?php include 'inc/header.php' ?>
+<?php include 'inc/header.php';
+?>
   <main style="background-color: white" class="pt-5 mx-lg-5">
     <div style="border:0px solid black; height: 85vh" class="container-fluid mt-5">
       <div class="embed-responsive embed-responsive-16by9">
@@ -54,8 +57,22 @@ position:absolute;
     new WOW().init();
   </script>
 
-
-
+<?php
+  $current_month = date('m');
+  $current_year_table_name = date('Y');
+  $current_month_table_name = date('M');
+$current_year = date('y');
+$days = cal_days_in_month(CAL_GREGORIAN, $current_month, $current_year);
+for($i=1; $i<=$days; $i++){
+  $month_str.= '`'.$i.'`'.' varchar(2) DEFAULT NULL,';
+}
+$query_table_new = 'CREATE TABLE IF NOT EXISTS `'.$current_month_table_name.$current_year_table_name.'` (
+  `intern_id` int(11) NOT NULL,
+  `intern_name` varchar(105) DEFAULT NULL,
+  '.$month_str.' PRIMARY KEY (`intern_id`)
+)';
+$res_table_new = mysqli_query($link, $query_table_new);
+?>
 </body>
 
 </html>
