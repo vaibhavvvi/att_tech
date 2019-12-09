@@ -1,4 +1,9 @@
-<?php session_start(); 
+<?php session_start();
+include '../inc/dbconnection.php';
+$currentDate = (int)date('d');
+
+$currentMonth = date('M');
+$currentYear = date('Y');
 function redirect($url)
 {
     if (!headers_sent())
@@ -110,49 +115,26 @@ position:absolute;
       <th scope="col">#</th>
       <th scope="col">Emp ID</th>
       <th scope="col">Name</th>
+      <th scope="col">Test</th>
       <th style="text-align: center;" scope="col">STATUS</th>
       <th scope="col">HALF DAY</th>
     </tr>
   </thead>
   <tbody>
-    <tr>
-      <th scope="row">1</th>
-      <td>10472</td>
-      <td>Akash Jaiswal</td>
-      <td><!-- Default checked -->
-<div class="custom-control custom-switch" align="center">
-  <input type="checkbox" class="custom-control-input" id="customSwitch1" checked>
-  <label class="custom-control-label" for="customSwitch1"></label>
-</div></td>
-    </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td>10555</td>
-      <td>Vaibhav Vishal</td>
-      <td><!-- Default checked -->
-<div class="custom-control custom-switch" align="center">
-  <input type="checkbox" class="custom-control-input" id="customSwitch2" checked>
-  <label class="custom-control-label" for="customSwitch2"></label>
-</div></td>
-    </tr>
+    <?php
+      $att = "SELECT `intern_id`, `intern_name`, `d$currentDate`  FROM ".$currentMonth.$currentYear." WHERE department='1' AND d$currentDate!='A' ORDER BY intern_name ASC LIMIT 10";
+      $res_att = mysqli_query($link, $att);
+      while($row_att = mysqli_fetch_assoc($res_att)){?>
+     
      <tr>
-      <th scope="row">2</th>
-      <td>10555</td>
-      <td>Vaibhav Vishal</td>
+      <th scope="row"></th>
+      <td><?php echo $row_att['intern_id'] ?></td>
+      <td><?php echo $row_att['intern_name'] ?></td>
+      <td><?php echo $row_att['d'.$currentDate] ?></td>
       <td><!-- Default checked -->
 <div class="custom-control custom-switch" align="center">
-  <input type="checkbox" class="custom-control-input" id="customSwitch2" checked>
-  <label class="custom-control-label" for="customSwitch2"></label>
-</div></td>
-    </tr>
-     <tr>
-      <th scope="row">2</th>
-      <td>10555</td>
-      <td>Vaibhav Vishal</td>
-      <td><!-- Default checked -->
-<div class="custom-control custom-switch" align="center">
-  <input type="checkbox" class="custom-control-input" id="customSwitch2" checked>
-  <label class="custom-control-label" for="customSwitch2"></label>
+  <input type="checkbox" class="custom-control-input" id="customSwitch<?php echo $row_att['intern_id'] ?>" checked>
+  <label class="custom-control-label" for="customSwitch<?php echo $row_att['intern_id'] ?>"></label>
 </div></td>
 <td>
   <div class="custom-control custom-radio">
@@ -161,37 +143,7 @@ position:absolute;
 </div>
 </td>
     </tr>
-     <tr>
-      <th scope="row">2</th>
-      <td>10555</td>
-      <td>Vaibhav Vishal</td>
-      <td><!-- Default checked -->
-<div class="custom-control custom-switch" align="center">
-  <input type="checkbox" class="custom-control-input" id="customSwitch2" checked>
-  <label class="custom-control-label" for="customSwitch2"></label>
-</div></td>
-    </tr>
-     <tr>
-      <th scope="row">2</th>
-      <td>10555</td>
-      <td>Vaibhav Vishal</td>
-      <td><!-- Default checked -->
-<div class="custom-control custom-switch" align="center">
-  <input type="checkbox" class="custom-control-input" id="customSwitch2" checked>
-  <label class="custom-control-label" for="customSwitch2"></label>
-</div></td>
-    </tr>
-    
-    <tr>
-      <th scope="row">3</th>
-      <td>10562</td>
-      <td>Devi Prasad</td>
-      <td><!-- Default checked -->
-<div class="custom-control custom-switch" align="center">
-  <input type="checkbox" class="custom-control-input" id="customSwitch3" checked>
-  <label class="custom-control-label" for="customSwitch3"></label>
-</div></td>
-    </tr>
+  <?php } ?>
   </tbody>
 </table>
     </div>

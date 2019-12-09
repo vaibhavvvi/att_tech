@@ -1,15 +1,7 @@
-<?php
-        $current_month = date('M');
-
-      $new_path = explode('/',getcwd());
-      $length_of_path = sizeof($new_path);
-      $directory_name = $new_path[$length_of_path-1];
-
-?>
-
 
 
 <head>
+  <head>
   <style>
     @media only screen and (max-width: 600px) {
   .only_for_mobile {
@@ -18,6 +10,8 @@
 }
   </style>
 </head>
+</head>
+
 <header>
 
     <!-- Navbar -->
@@ -41,8 +35,7 @@
           <!-- Left -->
           <ul class="navbar-nav mr-auto">
 
-
-            <div style="display: none" class="only_for_mobile"> 
+             <div style="display: none" class="only_for_mobile"> 
               <li class="nav-item">
               <a class="nav-link waves-effect" href="../" target="_blank">QR CODE</a>
             </li>
@@ -78,10 +71,6 @@
             <li class="nav-item">
               <a class="nav-link waves-effect" href="https://mdbootstrap.com/education/bootstrap/" target="_blank">Raise Query</a>
             </li>
-
-           
-
-
           </ul>
           <ul class="navbar-nav nav-flex-icons">
             <!-- <li class="nav-item">
@@ -111,53 +100,74 @@
     </nav>
     <div class="sidebar-fixed position-fixed">
       <a class="logo-wrapper waves-effect">
-        <center> <img src="img/hrc.png" class="img-fluid" alt=""> </center>
+        <center> <img src="../img/hrc.png" class="img-fluid" alt=""> </center>
       </a>
 
        <div class="list-group list-group-flush">
+        <a href="../" class="list-group-item list-group-item-action waves-effect">
+          <i class="fas fa-qrcode mr-3"></i>QR CODE</a>
 
-         <a href="./" class="list-group-item list-group-item-action waves-effect">
-          <i class="fas fa-qrcode mr-3"></i>QR Code</a>
+          <?php 
+      $new_path = explode('/',getcwd());
+      $length_of_path = sizeof($new_path);
+      $directory_name = $new_path[$length_of_path-1];
+      if($directory_name=='smart_attendance' || $directory_name=='absent'){
+      ?>
 
-
-        <?php if($directory_name=='smart_attendance' || $directory_name=='absent') { ?>
         <a href="../smart_attendance" class="list-group-item active primary-color waves-effect">
           <i class="fas fa-table mr-3"></i>Smart Attendance
         </a>
       <?php } 
-      else { ?>
+      else{
+
+      ?>
 
         <a href="../smart_attendance" class="list-group-item list-group-item-action waves-effect">
           <i class="fas fa-table mr-3"></i>Smart Attendance</a>
-      <?php } ?>
+
+        <?php } ?>
 
 
+<?php 
+      $new_path = explode('/',getcwd());
+      $length_of_path = sizeof($new_path);
+      $directory_name = $new_path[$length_of_path-1];
+      if($directory_name=='monthly_view'){
+      ?>
 
-
-      <?php if($directory_name=='monthly_view') { ?>
+      <?php
+        $current_month = date('M');
+      ?>
         <a href="../monthly_view?month=<?php echo $current_month ?>" class="list-group-item active primary-color waves-effect">
-          <i class="fas fa-calendar mr-3"></i>Monthly Report
+          <i class="fas fa-calendar mr-3"></i>Monthly report
         </a>
       <?php } 
-      else { ?>
-        <a href="../monthly_view?month=<?php echo $current_month ?>" class="list-group-item list-group-item-action waves-effect">
-          <i class="fas fa-calendar mr-3"></i>Monthly Report</a>
-      <?php } ?>
+      else{
 
-      <?php if($directory_name=='all_interns') { ?>
+      ?>
+
+        <a href="../monthly_view?month=<?php echo $current_month ?>" class="list-group-item list-group-item-action waves-effect">
+          <i class="fas fa-calendar mr-3"></i>Monthly report</a>
+
+        <?php }
+      $new_path = explode('/',getcwd());
+      $length_of_path = sizeof($new_path);
+      $directory_name = $new_path[$length_of_path-1];
+      if($directory_name=='all_interns'){
+      ?>
         <a href="../all_interns" class="list-group-item active primary-color waves-effect">
           <i class="fas fa-user mr-3"></i>Interns
         </a>
       <?php } 
-      else { ?>
-
+      else{
+      ?>
         <a href="../all_interns" class="list-group-item list-group-item-action waves-effect">
           <i class="fas fa-user mr-3"></i>Interns</a>
-      <?php } ?>
-
-      
-
-
+        <?php } ?>
+        <!-- <a href="#" class="list-group-item list-group-item-action waves-effect">
+          <i class="fas fa-map mr-3"></i>Maps</a> -->
+        <!-- <a href="#" class="list-group-item list-group-item-action waves-effect">
+          <i class="fas fa-money-bill-alt mr-3"></i>Orders</a> -->
       </div>
     </div>
 

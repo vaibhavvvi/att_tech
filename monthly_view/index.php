@@ -1,6 +1,7 @@
 <!DOctYPE html>
 <html lang="en">
-
+<?php include '../inc/dbconnection.php' ?>
+<?php $department=1; ?>
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -27,7 +28,13 @@ height:100%;
 width:100%;
 position:absolute;
 }
+
+.td{
+    width: 10px !important;
+  }
+
   </style>
+}
 </head>
 
 <body class="grey lighten-3">
@@ -37,11 +44,19 @@ position:absolute;
   else{
     $currentMonth='Jan';
   }
+
+  if(isset($_GET['year']))
+    $currentYear = $_GET['year'];
+  else{
+    $currentYear='2019';
+  }
+
   ?>
 <?php include '../inc/header_in.php' ?>
   <main class="pt-5 mx-lg-5">
     <div style="border:0px solid black; height: 80vh" class="container-fluid mt-5">
       <div class="row">
+        <center>
         <?php 
         if($currentMonth=='Jan') 
         { ?>
@@ -51,11 +66,6 @@ position:absolute;
         { ?>
           <button onclick="window.location.href='../monthly_view?month=Jan'" type="button" class="btn">Jan</button>
          <?php }
-
-
-
-
-
 
         if($currentMonth=='Feb') 
         { ?>
@@ -67,10 +77,6 @@ position:absolute;
           <button onclick="window.location.href='../monthly_view?month=Feb'" type="button" class="btn">Feb</button>
         <?php } 
 
-
-
-
-
         if($currentMonth=='Mar') 
         { ?>
           <button onclick="window.location.href='../monthly_view?month=Mar'" type="button" class="btn btn-deep-orange">Mar</button>
@@ -79,10 +85,6 @@ position:absolute;
         {?>
           <button onclick="window.location.href='../monthly_view?month=Mar'" type="button" class="btn">Mar</button>
         <?php }
-
-
-
-
 
          if($currentMonth=='Apr') 
         { ?>
@@ -93,10 +95,6 @@ position:absolute;
           <button onclick="window.location.href='../monthly_view?month=Apr'" type="button" class="btn">Apr</button>
         <?php }
 
-
-
-
-
          if($currentMonth=='May') 
         { ?>
           <button onclick="window.location.href='../monthly_view?month=May'" type="button" class="btn btn-deep-orange">May</button>
@@ -105,10 +103,6 @@ position:absolute;
         {?>
           <button onclick="window.location.href='../monthly_view?month=May'" type="button" class="btn">May</button>
         <?php }
-
-
-
-
 
          if($currentMonth=='Jun') 
         { ?>
@@ -119,10 +113,6 @@ position:absolute;
           <button onclick="window.location.href='../monthly_view?month=Jun'" type="button" class="btn">Jun</button>
         <?php }
 
-
-
-
-
          if($currentMonth=='Jul') 
         { ?>
           <button onclick="window.location.href='../monthly_view?month=Jul'" type="button" class="btn btn-deep-orange">Jul</button>
@@ -131,10 +121,6 @@ position:absolute;
         {?>
           <button onclick="window.location.href='../monthly_view?month=Jul'" type="button" class="btn">Jul</button>
         <?php }
-
-
-
-
 
          if($currentMonth=='Aug') 
         { ?>
@@ -145,11 +131,6 @@ position:absolute;
           <button onclick="window.location.href='../monthly_view?month=Aug'" type="button" class="btn">Aug</button>
         <?php }
 
-
-
-
-
-
          if($currentMonth=='Sep') 
         { ?>
           <button onclick="window.location.href='../monthly_view?month=Sep'" type="button" class="btn btn-deep-orange">Sep</button>
@@ -158,10 +139,6 @@ position:absolute;
         {?>
           <button onclick="window.location.href='../monthly_view?month=Sep'" type="button" class="btn">Sep</button>
         <?php }
-
-
-
-
 
          if($currentMonth=='Oct') 
         { ?>
@@ -172,10 +149,6 @@ position:absolute;
           <button onclick="window.location.href='../monthly_view?month=Oct'" type="button" class="btn">Oct</button>
         <?php }
 
-
-
-
-
          if($currentMonth=='Nov') 
         { ?>
           <button onclick="window.location.href='../monthly_view?month=Nov'" type="button" class="btn btn-deep-orange">Nov</button>
@@ -184,10 +157,6 @@ position:absolute;
         {?>
           <button onclick="window.location.href='../monthly_view?month=Nov'" type="button" class="btn">Nov</button>
         <?php }
-
-
-
-
 
          if($currentMonth=='Dec') 
         { ?>
@@ -198,10 +167,80 @@ position:absolute;
           <button onclick="window.location.href='../monthly_view?month=Dec'" type="button" class="btn">Dec</button>
         <?php }
         ?>
+      </center>
+      </div>
+      <br><br>
+      <div class="row">
+        <div class="container-fluid">
+          <table id="dt-basic-checkbox" class="table table-striped table-bordered" cellspacing="0" width="100%">
+  <thead>
+    <tr>
+      <!-- <th></th> -->
+      <th class="th-sm">EMP ID
+      </th>
+      <th class="th-sm">NAME
+      </th>
+
+      <?php
+       $start =1;
+       $end = 31;
+
+       while($start<=$end){
+        echo'
+        <th class="th-sm">'.$start.'
+      </th>';
+      $start=$start+1;
+       }
+      ?>
+    </tr>
+  </thead>
+  <tbody>
+
+     <?php
+            if(isset($_GET['pg'])){
+              $pg = $_GET['pg'];
+            }
+            else{
+              $pg=0;
+            }
+            $start=$pg*10;
+            $q_mnt = "SELECT * FROM ".$currentMonth.$currentYear." WHERE department='$department' ORDER BY intern_name ASC LIMIT $start,10";
+            $res_mnt = mysqli_query($link, $q_mnt);
+            while($row_mnt = mysqli_fetch_assoc($res_mnt)){
+          ?>
+    <tr>
+      <!-- <td></td> -->
+      <td><?php echo $row_mnt['intern_id'] ?></td>
+      <td><?php echo $row_mnt['intern_name'] ?></td>
+      <?php 
+        $start =1;
+        $end = 31;
+
+         while($start<=$end){
+          $temp = 'd'.$start;
+        echo'
+        <td>'.$row_mnt[$temp].'</td>';
+        $start=$start+1;
+       }
+
+      ?>
+    </tr>
+    <?php } ?>
+  
+
+  </tfoot>
+</table>
+
+
+
+
+        </div>
       </div>
     </div>
   </main>
-  <?php include '../inc/footer.php' ?>
+  <div style="position: absolute;bottom: 0px; width: 100%">
+  <!--?php include '../inc/footer.php' ?-->
+</div>
   <script type="text/javascript" src="../js/jquery-3.4.1.min.js"></script>
   <!-- Bootstrap tooltips -->
   <script type="text/javascript" src="../js/popper.min.js"></script>
