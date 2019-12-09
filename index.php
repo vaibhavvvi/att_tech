@@ -32,7 +32,7 @@ position:absolute;
 <body class="grey lighten-3">
 <?php include 'inc/header.php';?>
 
-<button onClick="javascript:window.open('/inc/phpqrcode/index1.php','Windows','width=auto,toolbar=no,menubar=no,scrollbars=yes,resizable=yes,location=no,directories=no,status=no, url=no');return false" style="position: absolute; bottom: 30px; right: 30px; border-radius: 50%; height: 75px; z-index: 3" class="btn btn-primary"><i class="fas fa-expand fa-2x" style="margin:-5px; padding: 0px"></i></button>
+<button onClick="javascript:window.open('/inc/phpqrcode/index1.php','Windows','width=auto,toolbar=no,menubar=no,scrollbars=yes,resizable=yes,location=no,directories=no,status=no, url=no');return false" style="position: absolute; bottom: 30px; right: 30px; border-radius: 50%; height: 75px; z-index: 3" class="btn btn white-text deep-orange"><i class="fas fa-expand fa-2x" style="margin:-5px; padding: 0px"></i></button>
   <main style="background-color: white" class="pt-5 mx-lg-5">
     <div style="border:0px solid black; height: 85vh" class="container-fluid mt-5">
       <div class="embed-responsive embed-responsive-16by9">

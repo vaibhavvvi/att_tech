@@ -14,7 +14,6 @@
   <link rel="icon" href="../img/favicon.png">
   <style>
 
-
 .map-container{
 overflow:hidden;
 padding-bottom:56.25%;
@@ -29,30 +28,27 @@ width:100%;
 position:absolute;
 }
 
-.td{
-    width: 10px !important;
-  }
-
   </style>
-}
 </head>
 
 <body class="grey lighten-3">
   <?php
-  if(isset($_GET['month']))
+  if(isset($_GET['month'])){
     $currentMonth = $_GET['month'];
+  }
   else{
     $currentMonth='Jan';
   }
 
-  if(isset($_GET['year']))
+  if(isset($_GET['year'])){
     $currentYear = $_GET['year'];
+  }
   else{
     $currentYear='2019';
   }
 
   ?>
-<?php include '../inc/header_in.php' ?>
+<?php include '../inc/header_in.php'?>
   <main class="pt-5 mx-lg-5">
     <div style="border:0px solid black; height: 80vh" class="container-fluid mt-5">
       <div class="row">
