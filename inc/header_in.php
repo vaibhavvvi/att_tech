@@ -111,7 +111,7 @@
     </nav>
     <div class="sidebar-fixed position-fixed">
       <a class="logo-wrapper waves-effect">
-        <center> <img src="img/hrc.png" class="img-fluid" alt=""> </center>
+        <center> <img src="../img/hrc.png" class="img-fluid" alt=""> </center>
       </a>
 
        <div class="list-group list-group-flush">
