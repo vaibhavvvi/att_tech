@@ -171,7 +171,8 @@ position:absolute;
           <table id="dt-basic-checkbox" class="table table-striped table-bordered" cellspacing="0" width="100%">
   <thead>
     <tr>
-      <!-- <th></th> -->
+      <th>#
+      </th>
       <th class="th-sm">EMP ID
       </th>
       <th class="th-sm">NAME
@@ -197,15 +198,16 @@ position:absolute;
               $pg = $_GET['pg'];
             }
             else{
-              $pg=0;
+              $pg=1;
             }
-            $start=$pg*10;
+            $start=($pg-1)*10;
+            $sl = ($pg-1)*10;
             $q_mnt = "SELECT * FROM ".$currentMonth.$currentYear." WHERE department='$department' ORDER BY intern_name ASC LIMIT $start,10";
             $res_mnt = mysqli_query($link, $q_mnt);
             while($row_mnt = mysqli_fetch_assoc($res_mnt)){
           ?>
     <tr>
-      <!-- <td></td> -->
+      <td> <?php echo $sl+1; $sl=$sl+1;?></td>
       <td><?php echo $row_mnt['intern_id'] ?></td>
       <td><?php echo $row_mnt['intern_name'] ?></td>
       <?php 

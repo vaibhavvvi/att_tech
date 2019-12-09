@@ -1,7 +1,6 @@
 <?php session_start();
 include '../inc/dbconnection.php';
 $currentDate = (int)date('d');
-
 $currentMonth = date('M');
 $currentYear = date('Y');
 function redirect($url)
@@ -115,9 +114,7 @@ position:absolute;
       <th scope="col">#</th>
       <th scope="col">Emp ID</th>
       <th scope="col">Name</th>
-      <th scope="col">Test</th>
       <th style="text-align: center;" scope="col">STATUS</th>
-      <th scope="col">HALF DAY</th>
     </tr>
   </thead>
   <tbody>
@@ -130,25 +127,18 @@ position:absolute;
       <th scope="row"></th>
       <td><?php echo $row_att['intern_id'] ?></td>
       <td><?php echo $row_att['intern_name'] ?></td>
-      <td><?php echo $row_att['d'.$currentDate] ?></td>
       <td><!-- Default checked -->
 <div class="custom-control custom-switch" align="center">
-  <input type="checkbox" class="custom-control-input" id="customSwitch<?php echo $row_att['intern_id'] ?>">
+  <input onchange="mark(this, '<?php echo $currentDate ?>', '<?php echo $currentMonth ?>', '<?php echo $currentYear ?>')" value='<?php echo $row_att["intern_id"] ?>' type="checkbox" class="custom-control-input" id="customSwitch<?php echo $row_att['intern_id'] ?>">
   <label class="custom-control-label" for="customSwitch<?php echo $row_att['intern_id'] ?>"></label>
 </div></td>
-<td>
-  <div class="custom-control custom-radio">
-  <input type="radio" class="custom-control-input" id="defaultUnchecked" name="defaultExampleRadios">
-  <label class="custom-control-label" for="defaultUnchecked">Half Day</label>
-</div>
-</td>
     </tr>
   <?php } ?>
   </tbody>
 </table>
     </div>
   </main>
-  <?php include '../inc/footer.php' ?>
+  <!--?php include '../inc/footer.php' ?-->
   <script type="text/javascript" src="../js/jquery-3.4.1.min.js"></script>
   <!-- Bootstrap tooltips -->
   <script type="text/javascript" src="../js/popper.min.js"></script>
@@ -160,6 +150,34 @@ position:absolute;
   <script type="text/javascript">
     // Animations initialization
     new WOW().init();
+
+
+
+    function mark(a, date, month, year){
+      console.log(a.checked);
+      console.log(a.value)
+      console.log(date);
+      console.log(month);
+      console.log(year);
+
+      $.ajax({
+                    url: "../absent/upd_att.php",
+                    method: "POST",
+                    data: {
+                        intern_id: a.value,
+                        date: date,
+                        month:month,
+                        year:year,
+                    },
+                    success: function(response){
+                      console.log(response);
+                      location.reload();
+                    }
+
+
+                    
+                });
+    }
   </script>
 </body>
 </html>
