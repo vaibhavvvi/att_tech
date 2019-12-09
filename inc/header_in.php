@@ -116,7 +116,7 @@
 
        <div class="list-group list-group-flush">
 
-         <a href="./" class="list-group-item list-group-item-action waves-effect">
+         <a href="../index.php" class="list-group-item list-group-item-action waves-effect">
           <i class="fas fa-qrcode mr-3"></i>QR Code</a>
 
 
