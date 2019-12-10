@@ -42,7 +42,6 @@ delete_directory('../inc/phpqrcode/cache');
 mkdir("../inc/phpqrcode/temp");
 mkdir("../inc/phpqrcode/cache");
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -135,8 +134,8 @@ position:absolute;
 </div></td>
 <td>
   <div class="custom-control custom-radio">
-  <input type="radio" class="custom-control-input" id="defaultUnchecked" name="defaultExampleRadios">
-  <label class="custom-control-label" for="defaultUnchecked">Half Day</label>
+  <input type="radio" class="custom-control-input" id="defaultUnchecked<?php echo $row_att['intern_id'] ?>" name="defaultExampleRadios<?php echo $row_att['intern_id'] ?>">
+  <label class="custom-control-label" for="defaultUnchecked<?php echo $row_att['intern_id'] ?>">Half Day</label>
 </div>
 </td>
     </tr>

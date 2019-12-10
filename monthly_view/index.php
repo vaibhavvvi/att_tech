@@ -165,11 +165,44 @@ position:absolute;
         ?>
       </center>
       </div>
-      <br><br>
+      <br>
+
+      <div style="float:center !important">
+        Page X of Y
+        <center>
+          <?php 
+            if(isset($_GET['pg'])){
+              $new_pg = $_GET['pg']+1;
+            }
+            else{
+              $new_pg = 2;
+            }
+
+            if(isset($_GET['pg'])){
+              if($_GET['pg']==1){
+                $old_pg=1;
+              }
+              else{
+                $old_pg = $_GET['pg']-1;
+              }
+              
+            }
+            else{
+              $old_pg = 1;
+            }
+          ?>
+          <a href="../monthly_view?month=<?php echo $currentMonth?>&pg=<?php echo $old_pg ?>">
+          <button type="button" class="btn btn-outline-warning waves-effect"><</button>
+        </a>
+          <a href="../monthly_view?month=<?php echo $currentMonth?>&pg=<?php echo $new_pg ?>">
+          <button type="button" class="btn btn-outline-danger waves-effect">></button>
+          </a>
+        </center>
+      </div>
       <div class="row">
         <div class="container-fluid">
-          <table id="dt-basic-checkbox" class="table table-striped table-bordered" cellspacing="0" width="100%">
-  <thead>
+          <table id="dt-basic-checkbox" class="table table-striped" cellspacing="0" width="100%">
+  <thead class="btn-deep-orange accent-2 white-text">
     <tr>
       <th>#
       </th>
@@ -177,11 +210,9 @@ position:absolute;
       </th>
       <th class="th-sm">NAME
       </th>
-
       <?php
        $start =1;
        $end = 31;
-
        while($start<=$end){
         echo'
         <th class="th-sm">'.$start.'
@@ -192,7 +223,6 @@ position:absolute;
     </tr>
   </thead>
   <tbody>
-
      <?php
             if(isset($_GET['pg'])){
               $pg = $_GET['pg'];
